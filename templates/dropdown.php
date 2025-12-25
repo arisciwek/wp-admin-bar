@@ -148,7 +148,7 @@ if (!defined('ABSPATH')) {
 
     <?php
     /**
-     * Section: Key Capabilities
+     * Section: Key Capabilities (Collapsible)
      * Conditional - shows if capability_names exist
      */
     if (!empty($data['capability_names'])) :
@@ -158,14 +158,23 @@ if (!defined('ABSPATH')) {
         $capabilities_to_display = apply_filters('wp_admin_bar_key_capabilities', $data['capability_names'], $user_id, $data);
 
         if (!empty($capabilities_to_display)) {
-            // Limit to reasonable number (e.g., first 10)
-            $max_capabilities = apply_filters('wp_admin_bar_max_capabilities_display', 10);
-            if (count($capabilities_to_display) > $max_capabilities) {
-                $capabilities_to_display = array_slice($capabilities_to_display, 0, $max_capabilities);
-                $capabilities_to_display[] = '... and ' . (count($data['capability_names']) - $max_capabilities) . ' more';
-            }
-
-            WP_Admin_Bar_Renderer::render_list('Key Capabilities', $capabilities_to_display, 'capabilities-section');
+            $capabilities_count = count($capabilities_to_display);
+            ?>
+            <div class="info-section info-list capabilities-section collapsible-section">
+                <h4 class="section-title collapsible-header" data-toggle="capabilities-list">
+                    <span class="collapsible-icon">▶</span>
+                    Key Capabilities
+                    <span class="capabilities-count">(<?php echo $capabilities_count; ?>)</span>
+                </h4>
+                <div class="section-content collapsible-content" id="capabilities-list" style="display: none;">
+                    <ul class="info-items">
+                        <?php foreach ($capabilities_to_display as $capability) : ?>
+                            <li class="info-item"><?php echo esc_html($capability); ?></li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+            </div>
+            <?php
         }
 
         do_action('wp_admin_bar_section_after_capabilities', $user_id, $user, $data);

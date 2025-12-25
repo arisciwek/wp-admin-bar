@@ -426,6 +426,69 @@
 }
 
 /* ===================================
+   Collapsible Sections
+   =================================== */
+
+/* Collapsible header */
+#wpadminbar .wp-admin-bar-dropdown-content .collapsible-header {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.15s ease;
+    user-select: none;
+}
+
+#wpadminbar .wp-admin-bar-dropdown-content .collapsible-header:hover {
+    color: #00ba37;
+}
+
+/* Collapsible icon */
+#wpadminbar .wp-admin-bar-dropdown-content .collapsible-icon {
+    display: inline-block;
+    font-size: 10px;
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+}
+
+#wpadminbar .wp-admin-bar-dropdown-content .collapsible-header.active .collapsible-icon {
+    transform: rotate(90deg);
+}
+
+/* Capabilities count badge */
+#wpadminbar .wp-admin-bar-dropdown-content .capabilities-count {
+    font-size: 10px;
+    font-weight: 400;
+    color: #a7aaad;
+    margin-left: auto;
+}
+
+/* Collapsible content */
+#wpadminbar .wp-admin-bar-dropdown-content .collapsible-content {
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+    max-height: 0;
+    opacity: 0;
+}
+
+#wpadminbar .wp-admin-bar-dropdown-content .collapsible-content.active {
+    max-height: 1000px;
+    opacity: 1;
+    overflow: visible;
+}
+
+/* Ensure items inside collapsible follow the same pattern as Roles */
+#wpadminbar .wp-admin-bar-dropdown-content .collapsible-section .info-item {
+    cursor: text !important;
+    user-select: text !important;
+}
+
+/* Smooth animation for collapsible items */
+#wpadminbar .wp-admin-bar-dropdown-content .collapsible-section {
+    overflow: visible;
+}
+
+/* ===================================
    Print Styles
    =================================== */
 

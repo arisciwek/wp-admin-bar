@@ -19,6 +19,7 @@
          */
         init: function() {
             this.setupDropdown();
+            this.setupCollapsible();
             this.bindEvents();
 
             /**
@@ -77,6 +78,41 @@
                 // Let the default action happen (navigation, etc.)
                 // Only stop propagation to prevent dropdown from closing
                 e.stopPropagation();
+            });
+        },
+
+        /**
+         * Setup collapsible sections
+         *
+         * Handles toggle functionality for collapsible sections like Key Capabilities
+         */
+        setupCollapsible: function() {
+            var $dropdown = $('#wp-admin-bar-wp-admin-bar-info');
+
+            if ($dropdown.length === 0) {
+                return;
+            }
+
+            // Handle collapsible header clicks
+            $dropdown.on('click', '.collapsible-header', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                var $header = $(this);
+                var targetId = $header.data('toggle');
+                var $content = $('#' + targetId);
+
+                // Toggle active class on header
+                $header.toggleClass('active');
+
+                // Toggle content visibility
+                if ($content.hasClass('active')) {
+                    $content.removeClass('active');
+                    $content.css('display', 'none');
+                } else {
+                    $content.addClass('active');
+                    $content.css('display', 'block');
+                }
             });
         },
 
