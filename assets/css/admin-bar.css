@@ -1,0 +1,436 @@
+/**
+ * WP Admin Bar Styles
+ *
+ * Styling for the enhanced admin bar with user information dropdown.
+ *
+ * @package WP_Admin_Bar
+ */
+
+/* ===================================
+   Main Admin Bar Item
+   =================================== */
+
+#wpadminbar #wp-admin-bar-wp-admin-bar-info {
+    float: right;
+}
+
+#wpadminbar #wp-admin-bar-wp-admin-bar-info > .ab-item {
+    padding: 0 12px;
+    height: 32px;
+    line-height: 32px;
+    display: flex;
+    align-items: center;
+}
+
+#wpadminbar #wp-admin-bar-wp-admin-bar-info.hover > .ab-item,
+#wpadminbar #wp-admin-bar-wp-admin-bar-info > .ab-item:hover {
+    background-color: #1d2327;
+    color: #72aee6;
+}
+
+/* Entity and User Display */
+.wp-admin-bar-entity {
+    color: #72aee6;
+    font-weight: 500;
+}
+
+.wp-admin-bar-user {
+    color: #fff;
+    font-weight: 500;
+}
+
+.wp-admin-bar-roles {
+    color: #00ba37;
+    font-weight: 400;
+}
+
+.wp-admin-bar-separator {
+    color: #999;
+    padding: 0 5px;
+}
+
+/* ===================================
+   Dropdown Content
+   =================================== */
+
+/* Override WordPress default submenu positioning */
+#wpadminbar #wp-admin-bar-wp-admin-bar-info .ab-sub-wrapper {
+    left: auto;
+    right: 0;
+}
+
+/* Override WordPress default user-select: none */
+#wpadminbar #wp-admin-bar-wp-admin-bar-info * {
+    user-select: text !important;
+    -webkit-user-select: text !important;
+    -moz-user-select: text !important;
+    -ms-user-select: text !important;
+}
+
+#wpadminbar .ab-submenu .wp-admin-bar-dropdown-content {
+    min-width: 380px;
+    max-width: 500px;
+    padding: 0;
+    margin: 0;
+    background: #23282d;
+    color: #eee;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+    cursor: default !important;
+    user-select: text;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+}
+
+/* Remove default padding from submenu item */
+#wpadminbar #wp-admin-bar-wp-admin-bar-info-details {
+    display: block;
+}
+
+#wpadminbar #wp-admin-bar-wp-admin-bar-info-details > .ab-item {
+    padding: 0 !important;
+    display: block;
+    height: auto !important;
+    line-height: normal !important;
+    background: transparent !important;
+    color: inherit !important;
+    cursor: default !important;
+}
+
+#wpadminbar #wp-admin-bar-wp-admin-bar-info-details > .ab-item:hover {
+    background: transparent !important;
+    cursor: default !important;
+}
+
+/* ===================================
+   Info Sections
+   =================================== */
+
+#wpadminbar .wp-admin-bar-dropdown-content .info-section {
+    padding: 16px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    margin: 0;
+}
+
+#wpadminbar .wp-admin-bar-dropdown-content .info-section:first-child {
+    padding-top: 18px;
+}
+
+#wpadminbar .wp-admin-bar-dropdown-content .info-section:last-child {
+    border-bottom: none;
+    padding-bottom: 18px;
+}
+
+#wpadminbar .wp-admin-bar-dropdown-content .section-title {
+    margin: 0 0 10px 0;
+    padding: 0;
+    font-size: 11px;
+    font-weight: 600;
+    color: #72aee6;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    cursor: text;
+    user-select: text;
+}
+
+#wpadminbar .wp-admin-bar-dropdown-content .section-content {
+    font-size: 13px;
+    line-height: 1.8;
+    user-select: text;
+}
+
+/* ===================================
+   Info Items (Key-Value Pairs)
+   =================================== */
+
+#wpadminbar .wp-admin-bar-dropdown-content .info-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+    gap: 20px;
+    padding: 0;
+}
+
+#wpadminbar .wp-admin-bar-dropdown-content .info-item:last-child {
+    margin-bottom: 0;
+}
+
+#wpadminbar .wp-admin-bar-dropdown-content .info-label {
+    font-weight: 400;
+    font-size: 12px;
+    color: #a7aaad;
+    white-space: nowrap;
+    flex-shrink: 0;
+    min-width: 100px;
+    cursor: text;
+    user-select: text;
+}
+
+#wpadminbar .wp-admin-bar-dropdown-content .info-value {
+    color: #eee;
+    text-align: right;
+    word-break: break-word;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: text;
+    user-select: text;
+}
+
+/* ===================================
+   Info Lists (Roles, Capabilities)
+   =================================== */
+
+#wpadminbar .wp-admin-bar-dropdown-content .info-list .section-content {
+    padding-left: 0;
+}
+
+#wpadminbar .wp-admin-bar-dropdown-content .info-items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#wpadminbar .wp-admin-bar-dropdown-content .info-list .info-item {
+    display: block;
+    padding: 8px 12px;
+    margin-bottom: 6px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 4px;
+    border-left: 3px solid #72aee6;
+    color: #eee;
+    font-size: 13px;
+    gap: 0;
+    text-align: left;
+    justify-content: flex-start;
+    cursor: text;
+    user-select: text;
+}
+
+#wpadminbar .wp-admin-bar-dropdown-content .info-list .info-item:last-child {
+    margin-bottom: 0;
+}
+
+#wpadminbar .wp-admin-bar-dropdown-content .info-list .info-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* Specific section styling */
+#wpadminbar .wp-admin-bar-dropdown-content .roles-section .info-item {
+    border-left-color: #00ba37;
+}
+
+#wpadminbar .wp-admin-bar-dropdown-content .capabilities-section .info-item {
+    border-left-color: #f0b849;
+}
+
+/* ===================================
+   Custom Sections
+   =================================== */
+
+#wpadminbar .wp-admin-bar-dropdown-content .custom-fields-section .section-title {
+    color: #f0b849;
+}
+
+#wpadminbar .wp-admin-bar-dropdown-content .entity-info-section .section-title {
+    color: #00ba37;
+}
+
+#wpadminbar .wp-admin-bar-dropdown-content .user-info-section .section-title {
+    color: #72aee6;
+}
+
+/* ===================================
+   Responsive Design
+   =================================== */
+
+/* Tablet: 782px - 960px */
+@media screen and (max-width: 960px) {
+    #wpadminbar .wp-admin-bar-separator {
+        display: none;
+    }
+
+    #wpadminbar .wp-admin-bar-roles {
+        display: none;
+    }
+
+    #wpadminbar .ab-submenu .wp-admin-bar-dropdown-content {
+        min-width: 320px;
+        max-width: 400px;
+    }
+
+    #wpadminbar .wp-admin-bar-dropdown-content .info-section {
+        padding: 14px 16px;
+    }
+}
+
+/* Mobile: < 782px */
+@media screen and (max-width: 782px) {
+    /* Hide the entire admin bar item on mobile */
+    #wpadminbar #wp-admin-bar-wp-admin-bar-info {
+        display: none !important;
+    }
+}
+
+/* WordPress admin bar mobile adjustments */
+@media screen and (max-width: 600px) {
+    #wpadminbar #wp-admin-bar-wp-admin-bar-info {
+        display: none !important;
+    }
+}
+
+/* ===================================
+   Dark Mode Adjustments
+   =================================== */
+
+.admin-color-light #wpadminbar .ab-submenu .wp-admin-bar-dropdown-content {
+    background: #f0f0f1;
+    color: #2c3338;
+}
+
+.admin-color-light #wpadminbar .wp-admin-bar-dropdown-content .info-section {
+    border-bottom-color: rgba(0, 0, 0, 0.08);
+}
+
+.admin-color-light #wpadminbar .wp-admin-bar-dropdown-content .info-label {
+    color: #646970;
+}
+
+.admin-color-light #wpadminbar .wp-admin-bar-dropdown-content .info-value {
+    color: #2c3338;
+}
+
+.admin-color-light #wpadminbar .wp-admin-bar-dropdown-content .info-list .info-item {
+    background: rgba(0, 0, 0, 0.03);
+    color: #2c3338;
+}
+
+.admin-color-light #wpadminbar .wp-admin-bar-dropdown-content .info-list .info-item:hover {
+    background: rgba(0, 0, 0, 0.06);
+}
+
+/* ===================================
+   Smooth Transitions
+   =================================== */
+
+#wpadminbar .wp-admin-bar-dropdown-content .info-item,
+#wpadminbar .wp-admin-bar-dropdown-content .info-list .info-item {
+    transition: background-color 0.15s ease;
+}
+
+/* ===================================
+   Loading & Empty States
+   =================================== */
+
+#wpadminbar .wp-admin-bar-dropdown-content .wp-admin-bar-loading {
+    padding: 20px;
+    text-align: center;
+    color: #a7aaad;
+    font-size: 13px;
+}
+
+.wp-admin-bar-loading::before {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-top-color: #72aee6;
+    border-radius: 50%;
+    animation: wp-admin-bar-spin 0.6s linear infinite;
+}
+
+@keyframes wp-admin-bar-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.wp-admin-bar-empty {
+    padding: 20px;
+    text-align: center;
+    color: #b4b9be;
+    font-size: 13px;
+    font-style: italic;
+}
+
+/* ===================================
+   Accessibility
+   =================================== */
+
+.wp-admin-bar-dropdown-content *:focus {
+    outline: 2px solid #72aee6;
+    outline-offset: 2px;
+}
+
+/* Screen reader only text */
+.wp-admin-bar-sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* ===================================
+   Custom Plugin Enhancements
+   =================================== */
+
+/* Example: Progress bars for plugins to use */
+#wpadminbar .wp-admin-bar-dropdown-content .wp-admin-bar-progress-container {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+#wpadminbar .wp-admin-bar-dropdown-content .wp-admin-bar-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #00ba37, #72aee6);
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+/* Example: Badge styling for plugins */
+#wpadminbar .wp-admin-bar-dropdown-content .wp-admin-bar-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.4;
+    background: #72aee6;
+    color: #fff;
+    border-radius: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+#wpadminbar .wp-admin-bar-dropdown-content .wp-admin-bar-badge.success {
+    background: #00ba37;
+}
+
+#wpadminbar .wp-admin-bar-dropdown-content .wp-admin-bar-badge.warning {
+    background: #f0b849;
+    color: #23282d;
+}
+
+#wpadminbar .wp-admin-bar-dropdown-content .wp-admin-bar-badge.error {
+    background: #dc3232;
+}
+
+/* ===================================
+   Print Styles
+   =================================== */
+
+@media print {
+    #wp-admin-bar-wp-admin-bar-info {
+        display: none !important;
+    }
+}
